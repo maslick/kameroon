@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { Camera } from "./camera";
+import { Scan } from "./scan";
 import {Root, Footer, GlobalStyle, Result} from "./styles";
 import {initializeAudio} from "./helper";
-import {Button} from "./camera/styles";
+import {Button} from "./scan/styles";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -11,8 +11,20 @@ export default function App() {
   const onCapture = (code) => {
     setResult(code);
   };
+
   const onClear = () => {
     setIsCameraOpen(false);
+  };
+
+  const handleStartScanBtn = () => {
+    initializeAudio();
+    setIsCameraOpen(true);
+    setResult(undefined);
+  };
+
+  const handleStopScanBtn = () => {
+    setIsCameraOpen(false);
+    setResult(undefined);
   };
 
   return (
@@ -27,25 +39,14 @@ export default function App() {
             </Result>
           )}
           {isCameraOpen &&
-            <Camera onCapture={code => onCapture(code)} onClear={onClear}/>
+            <Scan onCapture={onCapture} onClear={onClear} beepOn={true} bw={true} crosshair={true}/>
           }
         </div>
 
         <Footer>
           {!isCameraOpen ?
-            <Button onClick={() => {
-              initializeAudio();
-              setIsCameraOpen(true);
-              setResult(undefined);
-            }}>SCAN</Button> :
-            <Button
-              onClick={() => {
-                setIsCameraOpen(false);
-                setResult(undefined);
-              }}
-            >
-              STOP
-            </Button>
+            <Button onClick={handleStartScanBtn}>SCAN</Button>:
+            <Button onClick={handleStopScanBtn}>STOP</Button>
           }
         </Footer>
       </Root>

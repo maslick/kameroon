@@ -9,13 +9,18 @@ import {useQr} from "../hooks/use-qr";
 import {beep, CAPTURE_OPTIONS, drawCrosshair, monochromize} from "../helper";
 
 
-export function Camera({ onCapture, onClear }) {
+export function Scan({ onCapture, onClear, beepOn = true, scanRate = 250, bw = true, crosshair = true }) {
   const canvasRef = useRef();
   const videoRef = useRef();
   let timestamp = useRef(0);
   let qrworker = useQr(handleCapture);
 
-  const [container, setContainer] = useState({ width: 320, height: 430 });
+  const VIDEO_DIMENSIONS = {
+    width: 320,
+    height: 430
+  };
+
+  const [container, setContainer] = useState({ width: VIDEO_DIMENSIONS.width, height: VIDEO_DIMENSIONS.height });
   const [isFlashing, setIsFlashing] = useState(false);
   let [isVideoPlaying, setIsVideoPlaying, videoPlaying] = useState(false);
 
@@ -34,8 +39,8 @@ export function Camera({ onCapture, onClear }) {
 
   function handleResize(contentRect) {
     setContainer({
-      width: 320,
-      height: 430
+      width: VIDEO_DIMENSIONS.width,
+      height: VIDEO_DIMENSIONS.height
     });
   }
 
@@ -55,8 +60,8 @@ export function Camera({ onCapture, onClear }) {
         container.height
       );
 
-      monochromize(canvasRef.current, container);
-      drawCrosshair(canvasRef.current);
+      if (bw) monochromize(canvasRef.current, container);
+      if (crosshair) drawCrosshair(canvasRef.current);
       requestAnimationFrame(tick);
       if (videoPlaying.current) recogniseQRcode(time);
     }
@@ -71,7 +76,7 @@ export function Camera({ onCapture, onClear }) {
   }
 
   function recogniseQRcode(time) {
-    if (time - timestamp.current > CAPTURE_OPTIONS.scanRate) {
+    if (time - timestamp.current > scanRate) {
       timestamp.current = time;
       const context = canvasRef.current.getContext("2d", {willReadFrequently: true});
       const imageData = context.getImageData(0, 0, container.width, container.height);
@@ -81,7 +86,7 @@ export function Camera({ onCapture, onClear }) {
   }
 
   function handleCapture(code) {
-    beep();
+    if (beepOn) beep();
     videoRef.current.pause();
     setIsVideoPlaying(false);
     setIsFlashing(true);

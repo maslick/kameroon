@@ -73,6 +73,5 @@ export function beep(freq = 750, duration = 150, vol = 5) {
 
 export const CAPTURE_OPTIONS = {
   audio: false,
-  video: {facingMode: "environment"},
-  scanRate: 250
+  video: {facingMode: "environment"}
 };
