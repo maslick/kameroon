@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from "react";
+import { Camera } from "./camera";
+import {Root, Footer, GlobalStyle, Result} from "./styles";
+import {initializeAudio} from "./helper";
+import {Button} from "./camera/styles";
 
-function App() {
+export default function App() {
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [result, setResult] = useState();
+
+  const onCapture = (code) => {
+    setResult(code);
+  };
+  const onClear = () => {
+    setIsCameraOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Root>
+        <div style={{minHeight: 430, margin: 20}}>
+          {result && (
+            <Result>
+              <h2>Result</h2>
+              <p>{result['rawcode']}</p>
+              <p>{result['milliseconds']} ms</p>
+            </Result>
+          )}
+          {isCameraOpen &&
+            <Camera onCapture={code => onCapture(code)} onClear={onClear}/>
+          }
+        </div>
+
+        <Footer>
+          {!isCameraOpen ?
+            <Button onClick={() => {
+              initializeAudio();
+              setIsCameraOpen(true);
+              setResult(undefined);
+            }}>SCAN</Button> :
+            <Button
+              onClick={() => {
+                setIsCameraOpen(false);
+                setResult(undefined);
+              }}
+            >
+              STOP
+            </Button>
+          }
+        </Footer>
+      </Root>
+      <GlobalStyle/>
+    </Fragment>
   );
 }
-
-export default App;
