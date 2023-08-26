@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cameroon-eb231"
+  },
+  "targets": {
+    "cameroon-eb231": {
+      "hosting": {
+        "cameroon": [
+          "cameroon"
+        ]
+      }
+    }
+  }
+}
