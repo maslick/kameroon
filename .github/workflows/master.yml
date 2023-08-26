@@ -21,7 +21,7 @@ jobs:
       - name: install npm dependencies
         run: npm ci
       - name: build React bundle
-        run: npm run build
+        run: npm run build && npm run build-sw
         env:
           GENERATE_SOURCEMAP: false
           DISABLE_ESLINT_PLUGIN: true

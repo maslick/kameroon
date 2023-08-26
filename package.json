@@ -17,6 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-sw": "node ./src/sw-build.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
