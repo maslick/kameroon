@@ -73,7 +73,7 @@ export default function App() {
           <div>
             {!isCameraOpen ?
               <Button onClick={handleStartScanBtn}>SCAN</Button> :
-              <Button onClick={handleStopScanBtn}>STOP</Button>
+              <Button onClick={handleStopScanBtn} style={{backgroundColor: "red"}}>STOP</Button>
             }
           </div>
           <div style={{flexBasis: "100%", height: 0}}></div>
