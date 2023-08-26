@@ -28,9 +28,8 @@ export default function App() {
         <div style={{minHeight: 430, margin: 20}}>
           {result && (
             <Result>
-              <h2>Result</h2>
               <p>{result['rawcode']}</p>
-              <p>{result['milliseconds']} ms</p>
+              <p><b>{result['milliseconds']} ms</b></p>
             </Result>
           )}
           {isCameraOpen &&
