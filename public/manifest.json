@@ -7,7 +7,7 @@
     {
       "src": "apple-touch-icon.png",
       "type": "image/png",
-      "sizes": "180x180"
+      "sizes": "192x192"
     }
   ],
   "start_url": ".",
