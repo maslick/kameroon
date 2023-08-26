@@ -3,12 +3,14 @@ import {Footer, Root} from "../styles";
 import {Button} from "../scan/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {SET_BEEP, SET_BW, SET_CROSSHAIR} from "../reducers/prefs";
+import {useHistory} from "react-router-dom";
 
 export default function Settings() {
   const dispatch = useDispatch();
   const beepOn = useSelector(state => state.prefs.beep);
   const crossHairOn = useSelector(state => state.prefs.crossHair);
   const bwOn = useSelector(state => state.prefs.bw);
+  const {push} = useHistory();
 
   const handleSetBeep = async () => {
     dispatch(SET_BEEP(!beepOn));
@@ -43,7 +45,7 @@ export default function Settings() {
   return (
     <Fragment>
       <Root>
-        <div style={{minHeight: 200, margin: 20}}>
+        <div style={{minHeight: 50, margin: 20}}>
           <h2>Settings</h2>
         </div>
       </Root>
@@ -53,6 +55,11 @@ export default function Settings() {
         <Button onClick={handleSetCrosshair} style={crossHairStyle()}>Crosshair</Button>
         <div style={{flexBasis: "100%", height: 0}}></div>
         <Button onClick={handleSetBw} style={bwStyle()}>B/W</Button>
+        <div style={{flexBasis: "100%", height: 50}}></div>
+        <a href="/" onClick={(e)=> {
+          e.preventDefault();
+          push("/");
+        }}>Back</a>
       </Footer>
     </Fragment>
   );

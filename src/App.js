@@ -55,7 +55,7 @@ export default function App() {
   };
 
   const renderSettingsButton = () => {
-    if (!isCameraOpen && !result) return (
+    if (!isCameraOpen || result) return (
         <Button style={{backgroundColor: "green"}} onClick={async () => push("/settings")}>PREFS</Button>
     );
   };
