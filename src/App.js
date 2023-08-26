@@ -3,13 +3,20 @@ import { Scan } from "./scan";
 import {Root, Footer, GlobalStyle, Result} from "./styles";
 import {initializeAudio} from "./helper";
 import {Button} from "./scan/styles";
+import {useHistory} from 'react-router-dom';
+import {useSelector} from "react-redux";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [result, setResult] = useState();
 
+  const beep = useSelector(state => state.prefs.beep);
+  const crossHair = useSelector(state => state.prefs.crossHair);
+  const bw = useSelector(state => state.prefs.bw);
+
   const onCapture = (code) => setResult(code);
   const onClear = () => setIsCameraOpen(false);
+  const {push} = useHistory();
 
   const handleStartScanBtn = () => {
     initializeAudio();
@@ -34,7 +41,7 @@ export default function App() {
 
   const renderCamera = () => {
     if (isCameraOpen) return (
-      <Scan onCapture={onCapture} onClear={onClear} beepOn={true} bw={true} crosshair={true}/>
+      <Scan onCapture={onCapture} onClear={onClear} beepOn={beep} bw={bw} crosshair={crossHair}/>
     );
   };
 
@@ -44,6 +51,12 @@ export default function App() {
         <p>{result['rawcode']}</p>
         <p><b>{result['milliseconds']} ms</b></p>
       </Result>
+    );
+  };
+
+  const renderSettingsButton = () => {
+    if (!isCameraOpen && !result) return (
+        <Button style={{backgroundColor: "green"}} onClick={async () => push("/settings")}>PREFS</Button>
     );
   };
 
@@ -57,10 +70,14 @@ export default function App() {
         </div>
 
         <Footer>
-          {!isCameraOpen ?
-            <Button onClick={handleStartScanBtn}>SCAN</Button> :
-            <Button onClick={handleStopScanBtn}>STOP</Button>
-          }
+          <div>
+            {!isCameraOpen ?
+              <Button onClick={handleStartScanBtn}>SCAN</Button> :
+              <Button onClick={handleStopScanBtn}>STOP</Button>
+            }
+          </div>
+          <div style={{flexBasis: "100%", height: 0}}></div>
+          {renderSettingsButton()}
         </Footer>
       </Root>
       <GlobalStyle/>

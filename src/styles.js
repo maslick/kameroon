@@ -44,7 +44,6 @@ export const Result = styled.div`
 
 export const Footer = styled.footer`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 50px;
 `;
