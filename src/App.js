@@ -22,24 +22,43 @@ export default function App() {
     setResult(undefined);
   };
 
+  const renderHelp = () => {
+    if (!isCameraOpen && !result)
+      return (
+        <div style={{paddingTop: 180}}>
+          <h3>Welcome to Cameroon!</h3>
+          <p>Click SCAN to start the QR code scanner :)</p>
+        </div>
+      );
+  };
+
+  const renderCamera = () => {
+    if (isCameraOpen) return (
+      <Scan onCapture={onCapture} onClear={onClear} beepOn={true} bw={true} crosshair={true}/>
+    );
+  };
+
+  const renderResult = () => {
+    if (result) return (
+      <Result>
+        <p>{result['rawcode']}</p>
+        <p><b>{result['milliseconds']} ms</b></p>
+      </Result>
+    );
+  };
+
   return (
     <Fragment>
       <Root>
         <div style={{minHeight: 430, margin: 20}}>
-          {result && (
-            <Result>
-              <p>{result['rawcode']}</p>
-              <p><b>{result['milliseconds']} ms</b></p>
-            </Result>
-          )}
-          {isCameraOpen &&
-            <Scan onCapture={onCapture} onClear={onClear} beepOn={true} bw={true} crosshair={true}/>
-          }
+          {renderHelp()}
+          {renderResult()}
+          {renderCamera()}
         </div>
 
         <Footer>
           {!isCameraOpen ?
-            <Button onClick={handleStartScanBtn}>SCAN</Button>:
+            <Button onClick={handleStartScanBtn}>SCAN</Button> :
             <Button onClick={handleStopScanBtn}>STOP</Button>
           }
         </Footer>
