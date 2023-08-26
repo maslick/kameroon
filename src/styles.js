@@ -33,9 +33,8 @@ export const Root = styled.main`
 `;
 
 export const Result = styled.div`
-  width: 100%;
+  width: 320px;
   height: auto;
-  padding: 0 20px;
   white-space: pre-wrap;
   word-break: break-word;
   background-color: #e6e6e6;
