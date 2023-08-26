@@ -8,13 +8,8 @@ export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [result, setResult] = useState();
 
-  const onCapture = (code) => {
-    setResult(code);
-  };
-
-  const onClear = () => {
-    setIsCameraOpen(false);
-  };
+  const onCapture = (code) => setResult(code);
+  const onClear = () => setIsCameraOpen(false);
 
   const handleStartScanBtn = () => {
     initializeAudio();
