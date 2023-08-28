@@ -1,20 +1,35 @@
-import React, { Fragment, useState } from "react";
+import React, {Fragment, useState} from "react";
 import { Scan } from "./scan";
 import {Root, Footer, GlobalStyle, Result} from "./styles";
 import {initializeAudio} from "./helper";
 import {Button} from "./scan/styles";
 import {useHistory} from 'react-router-dom';
 import {useSelector} from "react-redux";
+import {useQueryState} from "./useQueryState";
+import {encryptMessage, ab2str} from "./crypto";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [result, setResult] = useState();
+  const [redirect_url] = useQueryState("redirect_url");
+  const [publicKey] = useQueryState("public_key");
 
   const beep = useSelector(state => state.prefs.beep);
   const crossHair = useSelector(state => state.prefs.crossHair);
   const bw = useSelector(state => state.prefs.bw);
 
-  const onCapture = (code) => setResult(code);
+  const onCapture = async (code) => {
+    if (redirect_url && publicKey) {
+      const encryptedMessage = await encryptMessage(decodeURIComponent(publicKey), code.rawcode);
+      const encryptedMessageBase64 = window.btoa(ab2str(encryptedMessage));
+      const base64urlEncodedMessage = encodeURIComponent(encryptedMessageBase64);
+      setTimeout(()=> {
+        window.location.replace(`${redirect_url}?code=${base64urlEncodedMessage}`);
+      }, 300);
+    } else
+      setResult(code);
+  };
+
   const onClear = () => setIsCameraOpen(false);
   const {push} = useHistory();
 

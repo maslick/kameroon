@@ -3,7 +3,7 @@ import Measure from "react-measure";
 import { useUserMedia } from "../hooks/use-user-media";
 import { useCardRatio } from "../hooks/use-card-ratio";
 import { useOffsets } from "../hooks/use-offsets";
-import useState from 'react-usestateref'
+import useState from 'react-usestateref';
 import {Video, Canvas, Wrapper, Container, Flash} from "./styles";
 import {useQr} from "../hooks/use-qr";
 import {beep, CAPTURE_OPTIONS, drawCrosshair, monochromize} from "../helper";

@@ -10,7 +10,7 @@ export default function Settings() {
   const beepOn = useSelector(state => state.prefs.beep);
   const crossHairOn = useSelector(state => state.prefs.crossHair);
   const bwOn = useSelector(state => state.prefs.bw);
-  const {push} = useHistory();
+  const {go} = useHistory();
 
   const handleSetBeep = async () => {
     dispatch(SET_BEEP(!beepOn));
@@ -58,7 +58,7 @@ export default function Settings() {
         <div style={{flexBasis: "100%", height: 50}}></div>
         <a href="/" onClick={(e)=> {
           e.preventDefault();
-          push("/");
+          go(-1);
         }}>Back</a>
       </Footer>
     </Fragment>
