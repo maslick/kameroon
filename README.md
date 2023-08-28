@@ -1,9 +1,9 @@
-# =Cameroon=
+# =Kameroon=
 QR/bar code scanner for the Browser
 
 
 ## :bulb: Demo
-https://cameroon.web.app
+https://kameroon.web.app
 
 
 ## 🔭 References

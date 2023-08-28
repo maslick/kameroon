@@ -5,8 +5,8 @@
   "targets": {
     "cameroon-eb231": {
       "hosting": {
-        "cameroon": [
-          "cameroon"
+        "kameroon": [
+          "kameroon"
         ]
       }
     }
