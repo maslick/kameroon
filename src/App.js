@@ -48,7 +48,7 @@ export default function App() {
     if (!isCameraOpen && !result)
       return (
         <div style={{paddingTop: 180}}>
-          <h3>Welcome to Kameroon!</h3>
+          <h3>Welcome to <a href="https://kameroon.web.app">Kameroon</a>!</h3>
           <p>Click SCAN to start the QR code scanner :)</p>
         </div>
       );
