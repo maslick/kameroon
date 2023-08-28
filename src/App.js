@@ -6,7 +6,7 @@ import {Button} from "./scan/styles";
 import {useHistory} from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {useQueryState} from "./useQueryState";
-import {encryptMessage, ab2str} from "./crypto";
+import {encryptMessage, encodeEncryptedMessageAsBase64} from "./crypto";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function App() {
   const onCapture = async (code) => {
     if (redirect_url && publicKey) {
       const encryptedMessage = await encryptMessage(decodeURIComponent(publicKey), code.rawcode);
-      const encryptedMessageBase64 = window.btoa(ab2str(encryptedMessage));
+      const encryptedMessageBase64 = encodeEncryptedMessageAsBase64(encryptedMessage);
       const base64urlEncodedMessage = encodeURIComponent(encryptedMessageBase64);
       setTimeout(()=> {
         window.location.replace(`${redirect_url}?code=${base64urlEncodedMessage}`);
