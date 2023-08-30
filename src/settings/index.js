@@ -45,10 +45,13 @@ export default function Settings() {
   return (
     <Fragment>
       <Root>
-        <div style={{minHeight: 50, margin: 20}}>
-          <h2>Settings</h2>
+        <div style={{margin: 0}}>
+          <div style={{paddingTop: 180}}>
+            <h3>Settings</h3>
+          </div>
         </div>
       </Root>
+
       <Footer>
         <Button onClick={handleSetBeep} style={beepStyle()}>Beep</Button>
         <div style={{flexBasis: "100%", height: 0}}></div>
