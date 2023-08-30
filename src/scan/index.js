@@ -120,7 +120,6 @@ export function Scan({ onCapture, onClear, beepOn = true, scanRate = 250, bw = t
               playsInline
               muted
               style={{
-                display: 'none',
                 top: `-${offsets.y}px`,
                 left: `-${offsets.x}px`
               }}

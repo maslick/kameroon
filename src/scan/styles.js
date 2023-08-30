@@ -36,6 +36,7 @@ export const Canvas = styled.canvas`
 
 export const Video = styled.video`
   position: absolute;
+  display: none;
 
   &::-webkit-media-controls-play-button {
     display: none !important;
