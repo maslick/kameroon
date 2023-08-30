@@ -46,15 +46,15 @@ export async function saveKeysToLocalStorage(keys) {
 export async function fetchKeysFromLocalStorage() {
   const privateKeyBase64 = localStorage.getItem('privateKeyBase64');
   if (privateKeyBase64 === null)
-    throw new Error("key not found");
+    throw new Error("private key not found");
   const publicKeyBase64 = localStorage.getItem('publicKeyBase64');
   if (publicKeyBase64 === null)
-    throw new Error("key not found");
+    throw new Error("public key not found");
   const keyExpiration = parseInt(localStorage.getItem('ttl'));
   if (Date.now() < keyExpiration) {
     return {privateKey: await importPrivateKey(privateKeyBase64), publicKey: publicKeyBase64};
   } else {
-    throw new Error("key not found");
+    throw new Error("keys expired");
   }
 }
 
