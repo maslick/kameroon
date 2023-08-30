@@ -45,7 +45,7 @@ export default function Settings() {
   return (
     <Fragment>
       <Root>
-        <div style={{margin: 0}}>
+        <div style={{margin: 20}}>
           <div style={{paddingTop: 180}}>
             <h3>Settings</h3>
           </div>
