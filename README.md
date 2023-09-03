@@ -11,3 +11,5 @@ Pure JS demo: https://kameroon-demo-js.web.app
 
 ## 🔭 References
 https://github.com/maslick/koder
+https://github.com/maslick/kameroon-demo
+https://github.com/maslick/kameroon-demo-js
