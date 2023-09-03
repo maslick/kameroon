@@ -1,4 +1,4 @@
-# =Kameroon=
+# 🇨🇲 Kameroon 🇨🇲
 QR/bar code scanner as a Service
 
 
