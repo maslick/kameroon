@@ -59,19 +59,19 @@ export default function Settings() {
             id='beep-status'
             defaultChecked={beepOn}
             onChange={handleSetBeep}/>
-          <label htmlFor='beep-status' className="toggle-label">&nbsp;Beep</label>
+          <label htmlFor='beep-status' className="toggle-label">&nbsp;&nbsp;Beep</label>
           <div style={{flexBasis: "100%", height: 20}}></div>
           <Toggle
             id='crosshair-status'
             defaultChecked={crossHairOn}
             onChange={handleSetCrosshair}/>
-          <label htmlFor='crosshair-status' className="toggle-label">&nbsp;Crosshair</label>
+          <label htmlFor='crosshair-status' className="toggle-label">&nbsp;&nbsp;Crosshair</label>
           <div style={{flexBasis: "100%", height: 20}}></div>
           <Toggle
             id='bw-status'
             defaultChecked={bwOn}
             onChange={handleSetBw}/>
-          <label htmlFor='bw-status' className="toggle-label">&nbsp;Black and white</label>
+          <label htmlFor='bw-status' className="toggle-label">&nbsp;&nbsp;Black and white</label>
         </div>
 
         <div style={{flexBasis: "100%", height: 70}}></div>
