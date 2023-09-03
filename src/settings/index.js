@@ -58,7 +58,7 @@ export default function Settings() {
           <Toggle
             id='beep-status'
             defaultChecked={beepOn}
-            onChange={handleSetBw}/>
+            onChange={handleSetBeep}/>
           <label htmlFor='beep-status' style={{verticalAlign: "super"}}>&nbsp;Beep</label>
           <div style={{flexBasis: "100%", height: 20}}></div>
           <Toggle
