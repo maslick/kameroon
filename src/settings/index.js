@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {Footer, Root} from "../styles";
+import {Footer} from "../styles";
 import {useDispatch, useSelector} from "react-redux";
 import {SET_BEEP, SET_BW, SET_CROSSHAIR} from "../reducers/prefs";
 import {useHistory} from "react-router-dom";
@@ -45,13 +45,11 @@ export default function Settings() {
 
   return (
     <Fragment>
-      <Root>
-        <div style={{margin: 20}}>
-          <div style={{paddingTop: 180}}>
-            <h3>Settings</h3>
-          </div>
+      <Fragment>
+        <div style={{textAlign: "center", paddingTop: 180, marginBottom: 70}}>
+          <h3>Settings</h3>
         </div>
-      </Root>
+      </Fragment>
 
       <Footer>
         <div>

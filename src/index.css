@@ -16,3 +16,32 @@ code {
   vertical-align: super;
   padding-left: 15px;
 }
+
+/* React toggle: Disable wiggle in Safari */
+.react-toggle-track-x {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  transition: none !important;
+}
+
+.react-toggle--checked .react-toggle-track-check {
+  transition: none !important;
+}
+
+.react-toggle-track-check {
+  transition: none !important;
+}
+
+
+/* React toggle: Disable box-shadow */
+.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
