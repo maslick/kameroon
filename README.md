@@ -1,5 +1,5 @@
 # =Kameroon=
-QR/bar code scanner for the Browser
+QR/bar code scanner as a Service
 
 
 ## :bulb: Demo
