@@ -1,9 +1,10 @@
 import React, {Fragment} from "react";
 import {Footer, Root} from "../styles";
-import {Button} from "../scan/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {SET_BEEP, SET_BW, SET_CROSSHAIR} from "../reducers/prefs";
 import {useHistory} from "react-router-dom";
+import Toggle from 'react-toggle';
+import "react-toggle/style.css";
 
 export default function Settings() {
   const dispatch = useDispatch();
@@ -53,13 +54,29 @@ export default function Settings() {
       </Root>
 
       <Footer>
-        <Button onClick={handleSetBeep} style={beepStyle()}>Beep</Button>
-        <div style={{flexBasis: "100%", height: 0}}></div>
-        <Button onClick={handleSetCrosshair} style={crossHairStyle()}>Crosshair</Button>
-        <div style={{flexBasis: "100%", height: 0}}></div>
-        <Button onClick={handleSetBw} style={bwStyle()}>B/W</Button>
-        <div style={{flexBasis: "100%", height: 50}}></div>
-        <a href="/" onClick={(e)=> {
+        <div>
+          <Toggle
+            id='beep-status'
+            defaultChecked={beepOn}
+            onChange={handleSetBw}/>
+          <label htmlFor='beep-status' style={{verticalAlign: "super"}}>&nbsp;Beep</label>
+          <div style={{flexBasis: "100%", height: 20}}></div>
+          <Toggle
+            id='crosshair-status'
+            defaultChecked={crossHairOn}
+            onChange={handleSetCrosshair}/>
+          <label htmlFor='bw-status' style={{verticalAlign: "super"}}>&nbsp;Crosshair</label>
+          <div style={{flexBasis: "100%", height: 20}}></div>
+          <Toggle
+            id='bw-status'
+            defaultChecked={bwOn}
+            onChange={handleSetBw}/>
+          <label htmlFor='bw-status' style={{verticalAlign: "super"}}>&nbsp;Black and white</label>
+
+        </div>
+
+        <div style={{flexBasis: "100%", height: 70}}></div>
+        <a href="/" onClick={(e) => {
           e.preventDefault();
           go(-1);
         }}>Back</a>
