@@ -1,6 +1,8 @@
 # 🇨🇲 Kameroon 🇨🇲
 QR/bar code scanner as a Service
 
+[![Build Status](https://github.com/maslick/kameroon/actions/workflows/master.yml/badge.svg)](https://github.com/maslick/kameroon/actions/workflows/master.yml)
+
 
 ## :bulb: Demo
 * Scanner: https://kameroon.web.app
