@@ -25,24 +25,6 @@ export default function Settings() {
     dispatch(SET_BW(!bwOn));
   };
 
-  const beepStyle = () => {
-    if (beepOn) return {
-      background: "green"
-    }
-  };
-
-  const crossHairStyle = () => {
-    if (crossHairOn) return {
-      background: "green"
-    }
-  };
-
-  const bwStyle = () => {
-    if (bwOn) return {
-      background: "green"
-    }
-  };
-
   return (
     <Fragment>
       <Fragment>
