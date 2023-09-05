@@ -6,7 +6,7 @@ import {Button} from "./scan/styles";
 import {useHistory} from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {useQueryState} from "./useQueryState";
-import {encryptMessage, encodeEncryptedMessageAsBase64} from "./crypto";
+import {encryptMessage, encodeEncryptedMessageAsBase64} from "@maslick/kameroon";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
