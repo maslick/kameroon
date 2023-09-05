@@ -13,3 +13,4 @@ QR/bar code scanner as a Service
 * https://github.com/maslick/koder
 * https://github.com/maslick/kameroon-demo
 * https://github.com/maslick/kameroon-demo-js
+* https://github.com/maslick/kameroon-lib
