@@ -31,7 +31,6 @@ export function initializeAudio() {
   document.addEventListener('touchend', fixAudioContext);
 }
 
-
 export function monochromize(ref, container) {
   const context = ref.getContext("2d", {willReadFrequently: true});
   let imgd = context.getImageData(0, 0, container.width, container.height);
@@ -43,14 +42,6 @@ export function monochromize(ref, container) {
     pix[i + 2] = gray;
   }
   context.putImageData(imgd, 0, 0);
-}
-
-export function drawCrosshair(ref) {
-  const crossHairSvg = "M77.125 148.02567c0-3.5774 2.73862-6.27567 6.37076-6.27567H119V117H84.0192C66.50812 117 52 130.77595 52 148.02567V183h25.125v-34.97433zM237.37338 117H202v24.75h35.18494c3.63161 0 6.69006 2.69775 6.69006 6.27567V183H269v-34.97433C269 130.77595 254.88446 117 237.37338 117zM243.875 285.4587c0 3.5774-2.73863 6.27567-6.37076 6.27567H202V317h35.50424C255.01532 317 269 302.70842 269 285.4587V251h-25.125v34.4587zM83.49576 291.73438c-3.63213 0-6.37076-2.69776-6.37076-6.27568V251H52v34.4587C52 302.70842 66.50812 317 84.0192 317H119v-25.26563H83.49576z";
-  const context = ref.getContext("2d", {willReadFrequently: true});
-  context.fillStyle = "rgba(255,255,255,0.4)";
-  const shape = new Path2D(crossHairSvg);
-  context.fill(shape);
 }
 
 export function beep(freq = 750, duration = 150, vol = 5) {
@@ -70,8 +61,3 @@ export function beep(freq = 750, duration = 150, vol = 5) {
     console.warn(e.toString());
   }
 }
-
-export const CAPTURE_OPTIONS = {
-  audio: false,
-  video: {facingMode: "environment"}
-};
