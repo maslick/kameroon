@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "build-sw": "node ./src/sw-build.js",
     "test": "react-scripts test",

@@ -1,10 +1,10 @@
-importScripts("wasm/zbar.js");
-importScripts("wasm/koder.js");
+importScripts("wasm/zxing.js");
+importScripts("wasm/koder-zxing.js");
 
 
 (async () => {
   // Initialize Koder
-  const koder = await new Koder().initialize({wasmDirectory: "./wasm"});
+  const koder = await new KoderZxing().initialize({wasmDirectory: "./wasm"});
 
   // Listen for messages from JS main thread containing raw image data
   self.addEventListener('message', event => {
@@ -20,6 +20,7 @@ importScripts("wasm/koder.js");
     const scanResult = koder.decode(data, this.width, this.height);
     const t1 = new Date().getTime();
     if (scanResult) {
+      console.log(`Zxing: Scanned in ${t1-t0} ms`);
       postMessage({
         data: scanResult,
         ms: t1-t0
