@@ -4,7 +4,7 @@ import { useUserMedia } from "../hooks/use-user-media";
 import { useCardRatio } from "../hooks/use-card-ratio";
 import { useOffsets } from "../hooks/use-offsets";
 import useState from 'react-usestateref';
-import {Video, Canvas, Wrapper, Container, Flash} from "./styles";
+import {Video, Canvas, Wrapper, Container} from "./styles";
 import {useQr} from "../hooks/use-qr";
 import {beep, monochromize} from "../helper";
 
@@ -24,7 +24,7 @@ export function Scan({ onCapture, onClear, beepOn = true, scanRate = 250, bw = t
   const canvasRef = useRef();
   const videoRef = useRef();
   let timestamp = useRef(0);
-  let qrworker = useQr(handleCapture);
+  let [zbarWorker, zxingWorker] = useQr(handleCapture);
 
   const VIDEO_DIMENSIONS = {
     width: 320,
@@ -32,7 +32,6 @@ export function Scan({ onCapture, onClear, beepOn = true, scanRate = 250, bw = t
   };
 
   const [container, setContainer] = useState({ width: VIDEO_DIMENSIONS.width, height: VIDEO_DIMENSIONS.height });
-  const [isFlashing, setIsFlashing] = useState(false);
   let [isVideoPlaying, setIsVideoPlaying, videoPlaying] = useState(false);
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
@@ -95,16 +94,23 @@ export function Scan({ onCapture, onClear, beepOn = true, scanRate = 250, bw = t
         imageData = context.getImageData(x0, y0, crossHairWidth, crossHairHeight);
       else
         imageData = context.getImageData(0, 0, container.width, container.height);
-      qrworker.postMessage({width: imageData.width, height: imageData.height});
-      qrworker.postMessage(imageData, [imageData.data.buffer]);
+
+      const dimensions = {width: imageData.width, height: imageData.height};
+      const bufferZbar = imageData.data.buffer.slice(0);
+      const bufferZXing = imageData.data.buffer.slice(0);
+
+      zbarWorker.postMessage(dimensions);
+      zxingWorker.postMessage(dimensions);
+      zbarWorker.postMessage(imageData, [bufferZbar]);
+      zxingWorker.postMessage(imageData, [bufferZXing]);
     }
   }
 
   function handleCapture(code) {
+    if (!videoRef.current) return;
     if (beepOn) beep();
     videoRef.current.pause();
     setIsVideoPlaying(false);
-    setIsFlashing(true);
     onCapture(code);
     onClear();
   }

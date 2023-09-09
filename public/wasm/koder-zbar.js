@@ -1,8 +1,8 @@
-class Koder {
+class KoderZbar {
   initialize(config) {
     return (async () => {
       // Load WASM file
-      console.log("Browser");
+      console.log("Zbar");
       config ||= {};
       const directory = config.wasmDirectory || "./wasm";
       this.mod = await CreateKoder({locateFile: file => `${directory}/${file}`});
