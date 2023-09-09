@@ -7,10 +7,7 @@ export function useQr(callback) {
   useEffect(() => {
     function createWorkers() {
       try {
-        console.info("creating zbar worker");
         const worker1 = new Worker("zbarWorker.js");
-
-        console.info("creating zxing worker");
         const worker2 = new Worker("zxingWorker.js");
 
         const onmessage = (alg) => async ev => {
