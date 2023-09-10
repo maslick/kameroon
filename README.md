@@ -9,9 +9,9 @@ QR/bar code scanner as a Service
 * React demo: https://kameroon-demo.web.app
 * Pure JS demo: https://kameroon-demo-js.web.app
 
-<p align="center" >
-  <img src="./architecture.png" width="750px" />
-</p>
+
+<img src="./architecture.png" width="750px" />
+
 
 ## 🚀 Features
 ### Supported formats
