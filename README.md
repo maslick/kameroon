@@ -9,6 +9,10 @@ QR/bar code scanner as a Service
 * React demo: https://kameroon-demo.web.app
 * Pure JS demo: https://kameroon-demo-js.web.app
 
+<p align="center" >
+  <img src="./architecture.png" width="750px" />
+</p>
+
 ## 🚀 Features
 ### Supported formats
 * Linear product: UPC-A, UPC-E, EAN-8, EAN-13, ISBN
