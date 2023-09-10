@@ -11,7 +11,7 @@ QR/bar code scanner as a Service
 
 ## 🚀 Features
 ### QR/Barcode support
-* Linear product: UPC-A, UPC-E, EAN-8, EAN-13, DATABAR, ISBN
+* Linear product: UPC-A, UPC-E, EAN-8, EAN-13, ISBN
 * Linear industrial: CODE-128, CODE-39, CODE-93, CODABAR, DATABAR, ITF-14, I25
 * Matrix: QR code, Micro QR Code, Aztec, DataMatrix, PDF417
 
