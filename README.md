@@ -10,9 +10,9 @@ QR/bar code scanner as a Service
 * Pure JS demo: https://kameroon-demo-js.web.app
 
 ## 🚀 Features
-### QR/Barcode support
+### Supported formats
 * Linear product: UPC-A, UPC-E, EAN-8, EAN-13, ISBN
-* Linear industrial: CODE-128, CODE-39, CODE-93, CODABAR, DATABAR, ITF-14, I25
+* Linear industrial: CODE-39, CODE-93, CODE-128, CODABAR, DATABAR, ITF-14, I25
 * Matrix: QR code, Micro QR Code, Aztec, DataMatrix, PDF417
 
 ### Security
