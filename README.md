@@ -14,3 +14,10 @@ QR/bar code scanner as a Service
 * https://github.com/maslick/kameroon-demo
 * https://github.com/maslick/kameroon-demo-js
 * https://github.com/maslick/kameroon-lib
+
+## 🙏 Credits
+We appreciate the open-source community for their contributions. **Kameroon** uses:
+
+- [ZXing-C++](https://github.com/zxing-cpp/zxing-cpp) (C++ port of ZXing) under [Apache License 2.0](https://github.com/zxing-cpp/zxing-cpp/blob/master/LICENSE).
+
+Contribute to the [original repository](https://github.com/zxing-cpp/zxing-cpp) for ZXing-C++ improvements.
