@@ -37,6 +37,4 @@ QR/bar code scanner as a Service
 ## 🙏 Credits
 We appreciate the open-source community for their contributions. **Kameroon** uses:
 
-- [ZXing-C++](https://github.com/zxing-cpp/zxing-cpp) (C++ port of ZXing) under [Apache License 2.0](https://github.com/zxing-cpp/zxing-cpp/blob/master/LICENSE).
-
-Contribute to the [original repository](https://github.com/zxing-cpp/zxing-cpp) for ZXing-C++ improvements.
+- [ZXing-C++](https://github.com/zxing-cpp/zxing-cpp) (C++ port of ZXing) under [Apache License 2.0](https://github.com/zxing-cpp/zxing-cpp/blob/master/LICENSE)
