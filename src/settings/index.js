@@ -70,6 +70,7 @@ export default function Config() {
                   }
                 })
               }}
+              isSearchable={false}
               defaultValue={{
                 value: crossHairStyle,
                 label: crossHairStyle.charAt(0).toUpperCase() + crossHairStyle.slice(1)
