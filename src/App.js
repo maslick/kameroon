@@ -16,6 +16,7 @@ export default function App() {
 
   const beep = useSelector(state => state.prefs.beep);
   const crossHair = useSelector(state => state.prefs.crossHair);
+  const crossHairStyle = useSelector(state => state.prefs.crossHairStyle);
   const bw = useSelector(state => state.prefs.bw);
 
   const onCapture = async (code) => {
@@ -56,7 +57,13 @@ export default function App() {
 
   const renderCamera = () => {
     if (isCameraOpen) return (
-      <Scan onCapture={onCapture} onClear={onClear} beepOn={beep} bw={bw} crosshair={crossHair}/>
+      <Scan
+        onCapture={onCapture}
+        onClear={onClear}
+        beepOn={beep}
+        bw={bw}
+        crosshair={{enabled: crossHair, style: crossHairStyle}}
+      />
     );
   };
 
@@ -71,7 +78,7 @@ export default function App() {
 
   const renderSettingsButton = () => {
     if (!isCameraOpen || result) return (
-        <Button style={{backgroundColor: "green"}} onClick={async () => push("/settings")}>SETTINGS</Button>
+        <Button style={{backgroundColor: "green"}} onClick={async () => push("/config")}>CONFIG</Button>
     );
   };
 

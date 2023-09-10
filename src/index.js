@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import {store as storeToolkit} from './storeToolkit';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Settings from "./settings";
+import Config from "./settings";
 import {Provider} from "react-redux";
 
 
@@ -14,8 +14,8 @@ const RootEl = () => (
   <Provider store={storeToolkit}>
     <Router>
       <Switch>
-        <Route path="/settings">
-          <Settings/>
+        <Route path="/config">
+          <Config/>
         </Route>
         <Route path="/">
           <App/>
