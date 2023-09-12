@@ -37,4 +37,5 @@ QR/bar code scanner as a Service
 ## 🙏 Credits
 We appreciate the open-source community for their contributions. **Kameroon** uses:
 
+- [Zbar](https://linuxtv.org/downloads/zbar/) under [LGPLv2+](https://github.com/mchehab/zbar/blob/master/LICENSE.md)
 - [ZXing-C++](https://github.com/zxing-cpp/zxing-cpp) (C++ port of ZXing) under [Apache License 2.0](https://github.com/zxing-cpp/zxing-cpp/blob/master/LICENSE)
