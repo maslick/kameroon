@@ -35,7 +35,7 @@ export default function Config() {
     <Fragment>
       <Fragment>
         <div style={{textAlign: "center", paddingTop: 180, marginBottom: 70}}>
-          <h3>Settings</h3>
+          <h3>Config</h3>
         </div>
       </Fragment>
 
@@ -57,7 +57,7 @@ export default function Config() {
             id='crosshair-status'
             defaultChecked={crossHairOn}
             onChange={handleSetCrosshair}/>
-          <label htmlFor='crosshair-status' className="toggle-label">Crosshair</label>
+          <label htmlFor='crosshair-status' className="toggle-label">Crosshair frame</label>
           <div style={{flexBasis: "100%", height: 20}}></div>
           {crossHairOn ?
             <Select

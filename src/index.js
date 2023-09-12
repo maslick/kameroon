@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import {store as storeToolkit} from './storeToolkit';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Config from "./settings";
+import Config from "./config";
 import {Provider} from "react-redux";
 
 
