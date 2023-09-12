@@ -20,9 +20,13 @@ QR/bar code scanner as a Service
 * Matrix: QR code, Micro QR Code, Aztec, DataMatrix, PDF417
 
 ### Security
-* In addition to using HTTPS, the resulting QR codes are further encrypted using asymmetric RSA-OAEP
-* We do not store your users' QR codes or encryption keys
-* Encryption keys are rotated with customizable rotation periods to align with user security policies
+* In addition to using HTTPS, the resulting QR codes are further encrypted using asymmetric RSA-OAEP encryption to mitigate the risks associated with URL-based data transmission, including:
+   - potential visibility in server logs and browser history
+   - caching (some proxies and browsers might cache URLs, making your sensitive data accessible to others)
+   - analytics tracking (if you're using analytics tools, they might capture query params, potentially exposing data you'd rather keep private)
+   - server log exposure (server logs can sometimes include full URLs)
+* Kameroon does not store your users' QR codes or encryption keys
+* Encryption keys are rotated with customizable rotation periods (defaults to 1h) to align with user security policies
 
 ### Developer support
 * [React.js](https://github.com/maslick/kameroon-demo) and [vanilla JS](https://github.com/maslick/kameroon-demo-js) examples
