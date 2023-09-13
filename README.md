@@ -16,7 +16,7 @@ QR/bar code scanner as a Service
 * **On-Device Scanning**: Scanning happens securely on your users' devices
 * **Data Encryption**: Results never leave users' devices unencrypted. RSA-OAEP encryption is used with the `public_key` your provide
 * **Secure Retrieval**: Encrypted data is sent back to your web app via the specified `redirect_url`
-* **Client-Side Decoding**: Decode the ciphertext using your `private_key`, which stays safely on your users' devices
+* **Client-Side Decoding**: Ciphertext is decode using your `private_key`, which stays safely on your users' devices
 * **Key Rotation**: Customize key rotation periods for enhanced security
 
 
