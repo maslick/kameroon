@@ -12,7 +12,7 @@ QR/bar code scanner as a Service
 
 <img src="./architecture.png" width="750px" />
 
-* **Serverless Simplicity**: No need for complex servers. Just redirect users to Kameroon
+* **Simplicity**: No need for complex libraries. Just redirect users to [Kameroon](https://kameroon.web.app)
 * **On-Device Scanning**: Scanning happens securely on your users' devices
 * **Data Encryption**: Results never leave users' devices unencrypted. RSA-OAEP encryption is used with the `public_key` your provide
 * **Secure Retrieval**: Encrypted data is sent back to your web app via the specified `redirect_url`
