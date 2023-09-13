@@ -62,6 +62,7 @@ export default function App() {
         onClear={onClear}
         beepOn={beep}
         bw={bw}
+        scanRate={200}
         crosshair={{enabled: crossHair, style: crossHairStyle}}
       />
     );
