@@ -39,7 +39,7 @@ export const Result = styled.div`
   word-break: break-word;
   background-color: #e6e6e6;
   border-radius: 6px;
-  padding: 20px;
+  padding: 20px 20px 30px;
 `;
 
 export const Footer = styled.footer`

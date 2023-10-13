@@ -14,8 +14,9 @@ export function useQr(callback) {
           if (ev.data != null) {
             const result = ev.data;
             const rawcode = result.data;
+            const codetype = result.type;
             const milliseconds = ev.data.ms;
-            callback({rawcode, milliseconds, alg});
+            callback({rawcode, milliseconds, alg, type: codetype});
           }
         };
 

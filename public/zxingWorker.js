@@ -22,7 +22,8 @@ importScripts("wasm/koder-zxing.js");
     if (scanResult) {
       console.log(`Zxing: Scanned in ${t1-t0} ms`);
       postMessage({
-        data: scanResult,
+        data: scanResult.code,
+        type: scanResult.type,
         ms: t1-t0
       });
     }

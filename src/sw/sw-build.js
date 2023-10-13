@@ -1,7 +1,7 @@
 const workboxBuild = require("workbox-build");
 const buildSW = () => {
   return workboxBuild.injectManifest({
-    swSrc: "src/sw-custom.js", // custom sw rules
+    swSrc: "src/sw/sw-custom.js", // custom sw rules
     swDest: "build/sw.js", // sw output file (auto-generated)
     globDirectory: "build",
     globPatterns: ["**/*.{js,css,html,png,svg,wasm,ico,json}"],

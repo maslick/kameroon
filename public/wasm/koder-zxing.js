@@ -17,7 +17,10 @@ class KoderZxing {
     const result = this.mod.readBarcodeFromPixmap(buffer, width, height, mode, format);
     this.mod._free(buffer);
     if (result && result.text.length > 0) {
-      results.push(result.text);
+      results.push({
+        code: result.text,
+        type: result.format
+      });
     }
     if (results.length > 0) return results[0];
     else return null;

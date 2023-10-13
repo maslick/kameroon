@@ -1,6 +1,6 @@
 {
   "name": "kameroon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "dependencies": {
     "@maslick/kameroon": "^1.0.2",
@@ -16,13 +16,15 @@
     "react-usestateref": "^1.0.8",
     "redux": "^4.2.1",
     "styled-components": "4.3.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "http-server": "^0.13.0"
   },
   "scripts": {
     "start": "HTTPS=true HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
-    "build-sw": "node ./src/sw-build.js",
+    "build-sw": "node src/sw/sw-build.js",
     "test": "react-scripts test",
+    "http-server": "http-server ./build/ -p 8082 -c-1",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

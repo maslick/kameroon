@@ -72,7 +72,8 @@ export default function App() {
     if (result) return (
       <Result>
         <p>{result['rawcode']}</p>
-        <p><b>{result['alg']}: {result['milliseconds']} ms</b></p>
+        <div><b>{result['alg']}:</b> {result['milliseconds']} ms</div>
+        <div><b>type</b>: {result["type"]}</div>
       </Result>
     );
   };
