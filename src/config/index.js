@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {Footer} from "../styles";
+import {Footer} from "../css/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {SET_BEEP, SET_BW, SET_CROSSHAIR, SET_CROSSHAIR_STYLE} from "../reducers/prefs";
 import {useHistory} from "react-router-dom";

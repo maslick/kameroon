@@ -1,11 +1,11 @@
 import React, {Fragment, useState} from "react";
 import { Scan } from "./scan";
-import {Root, Footer, GlobalStyle, Result} from "./styles";
+import {Root, Footer, GlobalStyle, Result} from "./css/styles";
 import {initializeAudio} from "./helper";
 import {Button} from "./scan/styles";
 import {useHistory} from 'react-router-dom';
 import {useSelector} from "react-redux";
-import {useQueryState} from "./useQueryState";
+import {useQueryState} from "./hooks/useQueryState";
 import {encryptMessage, encodeEncryptedMessageAsBase64} from "@maslick/kameroon";
 
 export default function App() {
