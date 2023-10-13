@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-import {store as storeToolkit} from './storeToolkit';
+import {store as storeToolkit} from './reducers/storeToolkit';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Config from "./config";
 import {Provider} from "react-redux";
