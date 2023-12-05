@@ -25,7 +25,7 @@ export default function App() {
       const encryptedMessageBase64 = encodeEncryptedMessageAsBase64(encryptedMessage);
       const base64urlEncodedMessage = encodeURIComponent(encryptedMessageBase64);
       setTimeout(()=> {
-        window.location.replace(`${redirect_url}?code=${base64urlEncodedMessage}`);
+        window.location.replace(`${redirect_url}?barcode=${base64urlEncodedMessage}`);
       }, 300);
     } else
       setResult(code);
